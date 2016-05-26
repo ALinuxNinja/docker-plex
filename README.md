@@ -20,7 +20,7 @@ sys:
   restart: always
   tty: true
   environment:
-    - PLEX_allowedNetworks="0.0.0.0/0.0.0.0"
+    - PLEX_disableRemoteSecurity="1"
   volumes:
     - data:/var/lib/plexmediaserver
     - media:/media
