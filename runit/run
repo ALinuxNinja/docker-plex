@@ -1,7 +1,11 @@
 #!/bin/bash
 
+## Fix permissions on plex folders
+chown -R plex:plex /var/lib/plexmediaserver 2> /dev/null
+
 ## Start/Stop Plex Media Server to generate required IDs if running for first time
 if [ ! -f "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" ]; then
+
 	## Start Plex Media Server in background
 	/sbin/setuser plex /usr/sbin/start_pms &
 	
