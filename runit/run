@@ -1,0 +1,27 @@
+#!/bin/bash
+
+## Start/Stop Plex Media Server to generate required IDs if running for first time
+if [ ! -f "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" ]; then
+	## Start Plex Media Server in background
+	/sbin/setuser plex /usr/sbin/start_pms &
+	
+	## Wait for configuration to be generated
+	while [[ ! -f "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" && $(grep -i machineidentifier "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" 2>/dev/null) == "" && $(grep -i processedmachineidentifier "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" 2>/dev/null) == "" && $(grep -i anonymousmachineidentifier "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" 2>/dev/null) == ""  ]]
+	do
+		sleep 1
+	done
+	## Stop Plex Media Server
+	sleep 10
+	kill $(ps ax | grep -v grep | grep -i "Plex Media Server" | awk -F " " '{ print $1 }')
+fi
+## Copy over pre-configured augtool setup
+cp /docker/augtool/augtool.orig /docker/augtool/augtool.current
+
+## Retrieve all PLEX_* environment variables
+env | grep PLEX | awk -F 'PLEX_' '{print $2}' | awk -F '=' '{print "set "$1 " " $2}' >> /docker/augtool/augtool.current
+
+## Apply settings for Plex Media Server
+/docker/augtool/augtool.current
+
+## Sart up Plex Media Server
+exec /sbin/setuser plex /usr/sbin/start_pms

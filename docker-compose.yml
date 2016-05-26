@@ -1,0 +1,7 @@
+sys:
+  container_name: plexmediaserver
+  build: .
+  restart: always
+  tty: true
+  environment:
+    - PLEX_allowedNetworks="0.0.0.0/0.0.0.0"
