@@ -27,3 +27,6 @@ sys:
   ports:
     - 32400:32400
 ```
+
+## Misc Notes
+If you place the media files in a folder named 'media' within this folder, and do not add a .dockerignore file, Docker will attempt to pull the contents of the folder into the build, which will take some time and space.
