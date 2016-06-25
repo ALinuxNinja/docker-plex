@@ -4,9 +4,9 @@ sys:
   restart: always
   tty: true
   environment:
-    - PLEX_disableRemoteSecurity="1"
+    - PLEX_disableRemoteSecurity="0"
   volumes:
-    - data:/var/lib/plexmediaserver
+    - data/Library:/var/lib/plexmediaserver/Library
     - media:/media
   ports:
     - 32400:32400
