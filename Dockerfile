@@ -12,6 +12,9 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen; \
         locale-gen en_US.UTF-8
 RUN export LANG=en_US.UTF-8
 
+## Add docker scripts
+ADD data/docker /docker
+
 ## Set WORKDIR
 WORKDIR /root
 RUN apt-get update && apt-get install -y lynx curl augeas-tools augeas-lenses lsof
