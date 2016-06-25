@@ -15,7 +15,7 @@ RUN export LANG=en_US.UTF-8
 ## Set WORKDIR
 WORKDIR /root
 RUN apt-get update && apt-get install -y lynx curl augeas-tools augeas-lenses lsof
-RUN curl -L $(lynx -dump -hiddenlinks=listonly https://plex.tv/downloads | grep -E "plexmediaserver_.*amd64\.deb" | awk -F " " '{print $2}') > plexmediaserver.deb
+RUN curl -L $(/docker/plex_getlink.sh) > plexmediaserver.deb
 RUN dpkg -i plexmediaserver.deb
 RUN rm plexmediaserver.deb
 
