@@ -17,7 +17,7 @@ ADD data/docker /docker
 
 ## Set WORKDIR
 WORKDIR /root
-RUN apt-get update && apt-get install -y lynx curl augeas-tools augeas-lenses lsof
+RUN apt-get update && apt-get install -y lynx curl augeas-tools augeas-lenses lsof python
 RUN curl -L $(/docker/plex_getlink.py) > plexmediaserver.deb
 RUN dpkg -i plexmediaserver.deb
 RUN rm plexmediaserver.deb
