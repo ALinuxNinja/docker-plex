@@ -1,6 +1,6 @@
 # docker-plex
 
-Plex for Docker aims at being an easy to use container that is ready to deploy immediately.
+Plex Media Server for Docker aims at being an easy to use container that is ready to deploy immediately.
 
 It currently installs the lastest version of Plex Media Server, and supports the configuration of all Plex Media Server preferences listed on [Advanced Server Settings](https://support.plex.tv/hc/en-us/articles/201105343-Advanced-Server-Settings)
 
@@ -17,10 +17,10 @@ and begin running Plex for Docker
 cd docker-plex
 docker-compose up -d
 ```
-Docker can then be accessed at http://127.0.0.1:32400, as well as other IP Addresses avaliable on your machine.
+Plex can then be accessed at http://127.0.0.1:32400, as well as other IP Addresses available on your machine.
 
 To add media, create seperate folders in the "media" folder for your different types of content such as "Movies" and "TV Shows".
-Files must be organized based on the conventions in [Media Preperation](https://support.plex.tv/hc/en-us/categories/200028098-Media-Preparation).
+Files must be organized based on the conventions in [Media Preparation](https://support.plex.tv/hc/en-us/categories/200028098-Media-Preparation).
 
 Then, open Plex, and there you can add the folders in "/media" to your media library.
 
