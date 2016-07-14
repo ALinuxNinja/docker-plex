@@ -4,7 +4,7 @@ sys:
   restart: always
   tty: true
   environment:
-    - PLEX_disableRemoteSecurity="0"
+    - PLEX_DlnaEnabled="1"
   volumes:
     - data/Library:/var/lib/plexmediaserver/Library
     - media:/media
