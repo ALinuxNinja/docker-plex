@@ -6,7 +6,7 @@ sys:
   environment:
     - PLEX_DlnaEnabled="1"
   volumes:
-    - data/Library:/var/lib/plexmediaserver/Library
-    - media:/media
+    - ./data/Library:/var/lib/plexmediaserver/Library
+    - ./media:/media
   ports:
     - 32400:32400
