@@ -5,8 +5,9 @@ sys:
   tty: true
   environment:
     - PLEX_DlnaEnabled="1"
+    - PLEX_FriendlyName="KatieKat"
   volumes:
     - ./data/Library:/var/lib/plexmediaserver/Library
-    - ./media:/media
+    - ./data/media:/media
   ports:
     - 32400:32400

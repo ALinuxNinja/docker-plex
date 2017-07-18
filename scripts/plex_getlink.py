@@ -3,7 +3,7 @@ from urllib.request import urlopen
 import sys
 import json
 
-json_downloads = urlopen('https://plex.tv/api/downloads/1.json').readall().decode('utf-8')
+json_downloads = urlopen('https://plex.tv/api/downloads/1.json').read().decode('utf-8')
 json_data = json.loads(json_downloads)
 
 for distro in json_data["computer"]["Linux"]["releases"]:

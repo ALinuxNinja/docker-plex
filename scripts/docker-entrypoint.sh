@@ -19,13 +19,13 @@ if [ ! -f "/var/lib/plexmediaserver/Library/Application Support/Plex Media Serve
 	kill $(ps ax | grep -v grep | grep -i "Plex Media Server" | awk -F " " '{ print $1 }')
 fi
 ## Copy over pre-configured augtool setup
-cp /docker/augtool/augtool.orig /docker/augtool/augtool.current
+cp /scripts/augtool /tmp/augtool
 
 ## Retrieve all PLEX_* environment variables
-env | grep PLEX | awk -F 'PLEX_' '{print $2}' | awk -F '=' '{print "set "$1 " " $2}' >> /docker/augtool/augtool.current
+env | grep PLEX | awk -F 'PLEX_' '{print $2}' | awk -F '=' '{print "set "$1 " " $2}' >> /tmp/augtool
 
 ## Apply settings for Plex Media Server
-/docker/augtool/augtool.current
+/tmp/augtool
 
 ## Sart up Plex Media Server
-exec /sbin/setuser plex /usr/sbin/start_pms
+su - plex -c "/usr/sbin/start_pms"
