@@ -7,7 +7,7 @@ chown -R plex:plex /var/lib/plexmediaserver 2> /dev/null
 if [ ! -f "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" ]; then
 
 	## Start Plex Media Server in background
-	/sbin/setuser plex /usr/sbin/start_pms &
+	su -  plex -c "/usr/sbin/start_pms &"
 	
 	## Wait for configuration to be generated
 	while [[ ! -f "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" && $(grep -i machineidentifier "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" 2>/dev/null) == "" && $(grep -i processedmachineidentifier "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" 2>/dev/null) == "" && $(grep -i anonymousmachineidentifier "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml" 2>/dev/null) == ""  ]]

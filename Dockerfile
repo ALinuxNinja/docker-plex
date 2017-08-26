@@ -17,6 +17,10 @@ RUN curl -L $(/scripts/plex_getlink.py) > plexmediaserver.deb
 RUN dpkg -i plexmediaserver.deb
 RUN rm plexmediaserver.deb
 
+## Fix Plex User
+RUN usermod -u 1000 plex \
+	&& groupmod -g 1000 plex
+
 ## Add entrypoint
 
 ENTRYPOINT ["/scripts/docker-entrypoint.sh"]
