@@ -10,7 +10,7 @@ WORKDIR /tmp
 ARG PLEX_DL
 
 RUN apt-get update \
-	&& apt-get install --no-install-recommends -y augeas-tools augeas-lenses curl \
+	&& apt-get install --no-install-recommends -y augeas-tools augeas-lenses curl ca-certificates \
 	&& ln -s /bin/true /sbin/udevadm \
 	&& curl -L ${PLEX_DL} > plexmediaserver.deb \
 	&& dpkg -i plexmediaserver.deb \
