@@ -12,7 +12,7 @@ ARG PLEX_DL
 RUN apt-get update \
 	&& apt-get install --no-install-recommends -y augeas-tools augeas-lenses curl \
 	&& ln -s /bin/true /sbin/udevadm \
-	curl -L ${PLEX_DL} > plexmediaserver.deb \
+	&& curl -L ${PLEX_DL} > plexmediaserver.deb \
 	&& dpkg -i plexmediaserver.deb \
 	&& rm plexmediaserver.deb \
 	&& usermod -u 1000 plex \
