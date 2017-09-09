@@ -1,10 +1,14 @@
-sys:
-  container_name: plexmediaserver
-  build: .
-  restart: always
-  tty: true
-  volumes:
-    - ./data/Library:/var/lib/plexmediaserver/Library
-    - ./data/media:/media
-  ports:
-    - 32400:32400
+version: '3'
+services:
+  sys:
+    container_name: plexmediaserver
+    image: alinuxninja/plex
+    restart: always
+    tty: true
+    volumes:
+      - plexdata:/var/lib/plexmediaserver/Library
+      - ./media:/media
+    ports:
+      - 32400:32400
+volumes:
+  plexdata: {}

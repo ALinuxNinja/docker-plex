@@ -8,16 +8,19 @@ It currently installs the lastest version of Plex Media Server, and supports the
 
 To begin running Plex for Docker, ensure that [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) are installed on the target machine.
 
-Then, clone the repo with git to a folder of your liking:
+Then, run git to clone this repo.
 ```
 git clone https://github.com/ALinuxNinja/docker-plex.git
-```
-Check the configuration to see if it is to your liking, the docker-compose.yml includes a mount for the media folder, and a mount for the Library folder. They can get quite big, so you may want to move them elsewhere. It also includes two custom preferences (See Additional Configuration below) that can be adjusted.
-```
 cd docker-plex
+```
+
+Check the settings in `docker-compose.yml` to see if they are what you want. By default, they are set to pretty sane values.
+
+Then, run the following command to bring up Plex Media Server
+```
 docker-compose up -d
 ```
-Plex can then be accessed at http://127.0.0.1:32400, as well as other IP Addresses available on your machine.
+
 
 ## Adding Media
 
