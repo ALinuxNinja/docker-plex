@@ -3,11 +3,11 @@ FROM ubuntu:16.04
 ## Add docker scripts
 ADD scripts /scripts
 
-## Add installer
-ADD plexmediaserver.deb plexmediaserver.deb
-
 ## Set WORKDIR
 WORKDIR /tmp
+
+## Add installer
+ADD plexmediaserver.deb plexmediaserver.deb
 
 RUN apt-get update \
 	&& apt-get install --no-install-recommends -y augeas-tools augeas-lenses \
