@@ -1,10 +1,14 @@
 #!/bin/bash
 
+## Get Plex Info
 PLEX_DL=$(python3 scripts/plex_getlink.py)
 PLEX_VER=$(echo ${PLEX_DL} | awk -F "/" '{print $5}')
 
+## Get Plex deb
 wget -O plexmediaserver.deb ${PLEX_DL}
 
+## Build Container
 docker build --build-arg PLEX_DL=${PLEX_DL} -t alinuxninja/plex:${PLEX_VER} -t alinuxninja/plex:latest . 
 
-
+## Push Container
+docker push alinuxninja/plex
