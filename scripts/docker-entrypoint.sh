@@ -27,5 +27,10 @@ env | grep PLEX | awk -F 'PLEX_' '{print $2}' | awk -F '=' '{print "set "$1 " " 
 ## Apply settings for Plex Media Server
 /tmp/augtool
 
+## Clean up old pid
+if [ -f "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/plexmediaserver.pid" ]; then
+	rm /var/lib/plexmediaserver/Library/Application Support/Plex Media Server/plexmediaserver.pid
+fi
+
 ## Sart up Plex Media Server
 su - plex -c "/usr/sbin/start_pms"
