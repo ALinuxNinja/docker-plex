@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PLEX_DL=$(python3 scripts/plex_getlink.py)
+PLEX_VER=$(echo ${PLEX_DL} | awk -F "/" '{print $5}')
+
+docker build --build-arg PLEX_DL=${PLEX_DL} . 
+
+
