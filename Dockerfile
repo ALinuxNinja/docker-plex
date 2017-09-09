@@ -16,7 +16,7 @@ RUN apt-get update \
 	&& dpkg -i plexmediaserver.deb \
 	&& rm plexmediaserver.deb \
 	&& usermod -u 1000 plex \
-	&& groupmod -g 1000 plex
+	&& groupmod -g 1000 plex \
 	&& apt-get -y purge curl \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
