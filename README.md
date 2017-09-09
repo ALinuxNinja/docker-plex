@@ -4,6 +4,8 @@ Plex Media Server for Docker aims at being an easy to use container that is read
 
 It currently installs the lastest version of Plex Media Server, and supports the configuration of all Plex Media Server preferences listed on [Advanced Server Settings](https://support.plex.tv/hc/en-us/articles/201105343-Advanced-Server-Settings)
 
+Builds are done and tagged every day by [Semaphore](https://semaphoreci.com)
+
 ## Getting started
 
 To begin running Plex for Docker, ensure that [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) are installed on the target machine.
@@ -54,12 +56,10 @@ sys:
 ## Ports and Volumes
 See https://support.plex.tv/hc/en-us/articles/201543147-What-network-ports-do-I-need-to-allow-through-my-firewall- for the ports that need to be mapped. The primary required port (32400 TCP) is already mapped for you.
 
-The Plex preferences are stored at /var/lib/plexmediaserver, and stored in ./data/Library outside of the container.
-
 ## Upgrading
-There is no special configuration required for upgrading. Just rebuild the container and launch it with the following commands.
+There is no special configuration required for upgrading. Just pull the container and bring it up again.
 ```
-docker-compose build --no-cache
+docker pull alinuxninja/plex
 docker-compose up -d
 ```
 
