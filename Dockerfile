@@ -18,7 +18,7 @@ RUN apt-get update \
 	&& usermod -u 1000 plex \
 	&& groupmod -g 1000 plex \
 	&& apt-get -y purge curl \
-	&& apt-get autoremove \
+	&& apt-get -y autoremove \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/scripts/docker-entrypoint.sh"]
