@@ -29,7 +29,7 @@ env | grep PLEX | awk -F 'PLEX_' '{print $2}' | awk -F '=' '{print "set "$1 " " 
 
 ## Clean up old pid
 if [ -f "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/plexmediaserver.pid" ]; then
-	rm /var/lib/plexmediaserver/Library/Application Support/Plex Media Server/plexmediaserver.pid
+	rm "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/plexmediaserver.pid"
 fi
 
 ## Sart up Plex Media Server
