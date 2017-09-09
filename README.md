@@ -1,4 +1,4 @@
-# docker-plex
+[![Build Status](https://semaphoreci.com/api/v1/alinuxninja/docker-plex/branches/master/badge.svg)](https://semaphoreci.com/alinuxninja/docker-plex)
 
 Plex Media Server for Docker aims at being an easy to use container that is ready to deploy immediately.
 
