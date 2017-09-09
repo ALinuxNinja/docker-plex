@@ -11,7 +11,7 @@ WORKDIR /tmp
 
 RUN apt-get update \
 	&& apt-get install -y curl augeas-tools augeas-lenses \
-	&& rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/* \
 	&& ln -s /bin/true /sbin/udevadm \
 	&& curl -L ${PLEX_DL} > plexmediaserver.deb \
 	&& dpkg -i plexmediaserver.deb \
