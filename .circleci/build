@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## Get Plex Info
+pip install urllib
 PLEX_DL=$(python scripts/plex_getlink.py)
 PLEX_VER=$(echo ${PLEX_DL} | awk -F "/" '{print $5}')
 
