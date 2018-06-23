@@ -17,7 +17,7 @@ jobs:
       - run: 
           name: Build Plex Docker Container
           command: |
-            echo -n 'Plex Download Link: '
+            echo -n 'Plex Download Linkk: '
             echo ${PLEX_DL}
             echo -n 'Plex Version: '
             echo ${PLEX_VERSION}
