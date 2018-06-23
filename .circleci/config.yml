@@ -28,7 +28,6 @@ jobs:
       - run:
           name: Push to Docker Hub
           command: docker push catdeployed/plex
-          context: Docker Hub
 
 workflows:
   version: 2
@@ -42,7 +41,3 @@ workflows:
                 - master
     jobs:
       - build
-  commit:
-    jobs:
-      - build:
-          context: Docker Hub
