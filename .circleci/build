@@ -1,9 +1,11 @@
 #!/bin/bash
 
 ## Get Plex Info
-pip install urllib
-PLEX_DL=$(python scripts/plex_getlink.py)
+PLEX_DL=$(cat .plex_version)
 PLEX_VER=$(echo ${PLEX_DL} | awk -F "/" '{print $5}')
 
+echo $PLEXDL $PLEXVER
+
 ## Build Container
-docker build --build-arg PLEX_DL=${PLEX_DL} -t catdeployed/plex:${PLEX_VER} -t catdeployed/plex:latest .
+#docker build --build-arg PLEX_DL=${PLEX_DL} -t catdeployed/plex:${PLEX_VER} -t catdeployed/plex:latest .
+
