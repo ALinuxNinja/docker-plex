@@ -17,24 +17,17 @@ jobs:
       - run: 
           name: Build Plex Docker Container
           command: |
-            echo -n 'Plex Download Link: '
+            echo -n 'Plex Download Linkk: '
             echo ${PLEX_DL}
             echo -n 'Plex Version: '
             echo ${PLEX_VERSION}
             docker build --build-arg PLEX_DL=${PLEX_DL} -t catdeployed/plex:${PLEX_VERSION} -t catdeployed/plex:latest .
-      - run:
-          name: Check if version exists
-          command: docker pull catdeployed/plex:${PLEX_VERSION} && circleci step halt || true
-      - run:
-          name: Skip this job for Pull Requests
-          command: '[[ -v CIRCLE_PR_NUMBER ]] && circleci step halt || true'
       - run:
           name: Login to Docker Hub
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run:
           name: Push to Docker Hub
           command: docker push catdeployed/plex
-          context: Docker Hub
 
 workflows:
   version: 2
@@ -50,5 +43,4 @@ workflows:
       - build
   commit:
     jobs:
-      - build:
-          context: Docker Hub
+      - build
