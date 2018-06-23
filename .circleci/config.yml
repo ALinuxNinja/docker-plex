@@ -41,3 +41,6 @@ workflows:
                 - master
     jobs:
       - build
+  commit:
+    jobs:
+      - build
