@@ -13,7 +13,7 @@ jobs:
           name: Get Plex Version
           command: |
             echo 'export PLEX_VERSION=$(echo ${PLEX_DL} | awk -F "/" '{print $5}')' >> $BASH_ENV
-            source $BASH_ENV)
+            source $BASH_ENV
       - run: 
           name: Build Plex Docker Container
           command: docker build --build-arg PLEX_DL=${PLEX_DL} -t catdeployed/plex:${PLEX_VERSION} -t catdeployed/plex:latest .
