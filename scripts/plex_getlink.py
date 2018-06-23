@@ -7,7 +7,7 @@ subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'requests'], stdo
 import requests
 import json
 
-json_downloads = requests.get('https://plex.tv/api/downloads/1.json').text.decode('utf-8')
+json_downloads = requests.get('https://plex.tv/api/downloads/1.json').text.lstrip()
 json_data = json.loads(json_downloads)
 
 for distro in json_data["computer"]["Linux"]["releases"]:
