@@ -1,10 +1,10 @@
-[![Build Status](https://semaphoreci.com/api/v1/alinuxninja/docker-plex/branches/master/badge.svg)](https://semaphoreci.com/alinuxninja/docker-plex) [![](https://images.microbadger.com/badges/image/alinuxninja/plex.svg)](https://microbadger.com/images/alinuxninja/plex) [![](https://images.microbadger.com/badges/version/alinuxninja/plex.svg)](https://hub.docker.com/r/alinuxninja/plex/)
+[![](https://images.microbadger.com/badges/image/catdeployed/plex:latest.svg)](https://hub.docker.com/r/catdeployed/plex/) [![](https://img.shields.io/microbadger/layers/catdeployed/plex/latest.svg)](https://hub.docker.com/r/catdeployed/plex/)
 
 Plex Media Server for Docker aims at being an easy to use container that is ready to deploy immediately.
 
 It currently installs the lastest version of Plex Media Server, and supports the configuration of all Plex Media Server preferences listed on [Advanced Server Settings](https://support.plex.tv/hc/en-us/articles/201105343-Advanced-Server-Settings)
 
-Builds are done and tagged every day by [Semaphore](https://semaphoreci.com)
+Builds are done and tagged every day by [CircleCI](https://circleci.com)
 
 ## Getting started
 
@@ -12,7 +12,7 @@ To begin running Plex for Docker, ensure that [docker](https://docs.docker.com/e
 
 Then, run git to clone this repo.
 ```
-git clone https://github.com/ALinuxNinja/docker-plex.git
+git clone https://github.com/CatDeployed/docker-plex.git
 cd docker-plex
 ```
 
@@ -59,7 +59,7 @@ See https://support.plex.tv/hc/en-us/articles/201543147-What-network-ports-do-I-
 ## Upgrading
 There is no special configuration required for upgrading. Just pull the container and bring it up again.
 ```
-docker pull alinuxninja/plex
+docker pull catdeployed/plex
 docker-compose up -d
 ```
 
